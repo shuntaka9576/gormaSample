@@ -20,6 +20,9 @@ migrate/down:
 	sql-migrate down -env=$(ENV)
 
 # goa
+all:clean gorma bootstrap
+run:
+	go run *.go
 REPO:=github.com/shuntaka9576/gormaSample
 bootstrap:
 	@goagen bootstrap -d $(REPO)/design
@@ -39,3 +42,6 @@ clean:
 	@rm -rf tool
 	@rm -rf swagger
 	@rm -f build
+curl:
+	curl http://localhost:8080/accounts/1
+	curl http://localhost:8080/bottles/1
