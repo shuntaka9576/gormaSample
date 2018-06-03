@@ -9,6 +9,7 @@ import (
 	"flag"
 	"log"
 	"github.com/shuntaka9576/gormaSample/database"
+	"github.com/shuntaka9576/gormaSample/controller"
 )
 
 func main() {
@@ -29,6 +30,7 @@ func main() {
 	flag.Parse()
 
 	if *dbrun {
+		log.Print("DB読み込み処理テスト")
 		cs, err := database.NewConfigsFromFile("dbconfig.yml")
 		if err != nil {
 			log.Fatalf("cannot open database configuration. exit. %s", err)
@@ -38,7 +40,7 @@ func main() {
 			log.Fatalf("database initialization failed: %s", err)
 		}
 		// Mount "accounts" controller
-		a := NewAccountsController(service, dbcon)
+		a := controller.NewAccountsController(service, dbcon)
 		app.MountAccountController(service, a)
 	}
 	// *****************

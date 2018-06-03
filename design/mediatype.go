@@ -43,7 +43,7 @@ var _ = Resource("account", func() { // Resources group related API endpoints
 		// localhost:8080/bottles/1とか？
 		Routing(GET("/:id")) // parameters and querystring values) and payload
 		Params(func() {      // (shape of the request body).
-			Param("userid", Integer, "User ID")
+			Param("id", Integer, "User ID")
 		})
 		Response(OK)       // Responses define the shape and status code
 		Response(NotFound) // of HTTP responses.
