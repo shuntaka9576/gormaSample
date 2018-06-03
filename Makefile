@@ -36,12 +36,11 @@ generate:
 	@goagen schema -d $(REPO)/design
 	@go build -o build
 clean:
-	@rm -rf models
-	@rm -rf app
-	@rm -rf client
-	@rm -rf tool
-	@rm -rf swagger
-	@rm -f build
+	rm -rf models
+	rm -rf app
+	rm -rf client
+	rm -rf tool
+	rm -rf swagger
 curl:
 	curl http://localhost:8080/accounts/1
 	curl http://localhost:8080/bottles/1
