@@ -44,6 +44,8 @@ func main() {
 		app.MountAccountController(service, c)
 		c2 := controller.NewSwaggeruiController(service)
 		app.MountSwaggeruiController(service, c2)
+		c3 := controller.NewBottleController(service)
+		app.MountBottleController(service, c3)
 	}
 	// *****************
 

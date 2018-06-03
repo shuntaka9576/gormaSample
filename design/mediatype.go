@@ -12,24 +12,24 @@ var _ = API("cellar", func() { // API defines the microservice endpoint and
 	Host("localhost:8080")
 })
 
-//var _ = Resource("bottle", func() { // Resources group related API endpoints
-//	// bottleリソースパスを指定する
-//	BasePath("/bottles") // together. They map to REST resources for REST
-//	// Mediaを代入
-//	DefaultMedia(BottleMedia) // services.
-//
-//	Action("show", func() { // Actions define a single API endpoint together
-//		// 説明
-//		Description("Get bottle by id") // with its path, parameters (both path
-//		// localhost:8080/bottles/1とか？
-//		Routing(GET("/:bottleID")) // parameters and querystring values) and payload
-//		Params(func() {            // (shape of the request body).
-//			Param("bottleID", Integer, "Bottle ID")
-//		})
-//		Response(OK)       // Responses define the shape and status code
-//		Response(NotFound) // of HTTP responses.
-//	})
-//})
+var _ = Resource("bottle", func() { // Resources group related API endpoints
+	// bottleリソースパスを指定する
+	BasePath("/bottles") // together. They map to REST resources for REST
+	// Mediaを代入
+	DefaultMedia(BottleMedia) // services.
+
+	Action("show", func() { // Actions define a single API endpoint together
+		// 説明
+		Description("Get bottle by id") // with its path, parameters (both path
+		// localhost:8080/bottles/1とか？
+		Routing(GET("/:bottleID")) // parameters and querystring values) and payload
+		Params(func() {            // (shape of the request body).
+			Param("bottleID", Integer, "Bottle ID")
+		})
+		Response(OK)       // Responses define the shape and status code
+		Response(NotFound) // of HTTP responses.
+	})
+})
 
 var _ = Resource("account", func() { // Resources group related API endpoints
 	// bottleリソースパスを指定する
@@ -51,24 +51,24 @@ var _ = Resource("account", func() { // Resources group related API endpoints
 })
 
 // レスポンスデータの定義
-//var BottleMedia = MediaType("application/vnd.goa.example.bottle+json", func() {
-//	// 説明
-//	Description("A bottle of wine")
-//	// どのような値があるのか
-//	Attributes(func() { // Attributes define the media type shape.
-//		Attribute("id", Integer, "Unique bottle ID")
-//		Attribute("href", String, "API href for making requests on the bottle")
-//		Attribute("name", String, "Name of wine")
-//		// レスポンスに必要な要素
-//		Required("id", "href", "name")
-//	})
-//	// 返すレスポンスのフォーマット
-//	View("default", func() { // View defines a rendering of the media type.
-//		Attribute("id")   // Media types may have multiple views and must
-//		Attribute("href") // have a "default" view.
-//		Attribute("name")
-//	})
-//})
+var BottleMedia = MediaType("application/vnd.goa.example.bottle+json", func() {
+	// 説明
+	Description("A bottle of wine")
+	// どのような値があるのか
+	Attributes(func() { // Attributes define the media type shape.
+		Attribute("id", Integer, "Unique bottle ID")
+		Attribute("href", String, "API href for making requests on the bottle")
+		Attribute("name", String, "Name of wine")
+		// レスポンスに必要な要素
+		Required("id", "href", "name")
+	})
+	// 返すレスポンスのフォーマット
+	View("default", func() { // View defines a rendering of the media type.
+		Attribute("id")   // Media types may have multiple views and must
+		Attribute("href") // have a "default" view.
+		Attribute("name")
+	})
+})
 
 var Account = MediaType("application/vnd.account+json", func() {
 	Description("celler account")
