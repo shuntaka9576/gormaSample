@@ -18,3 +18,22 @@ migrate/up:
 	sql-migrate up -env=$(ENV)
 migrate/down:
 	sql-migrate down -env=$(ENV)
+
+# goa
+REPO:=github.com/shuntaka9576/gormaSample
+generate:
+	@goagen app     -d $(REPO)/design
+	@goagen swagger -d $(REPO)/design
+	@goagen client -d $(REPO)/design
+	@goagen js -d $(REPO)/design
+	@goagen schema -d $(REPO)/design
+	@go build -o build
+
+clean:
+	@rm -rf app
+	@rm -rf client
+	@rm -rf tool
+	@rm -rf swagger
+	@rm -rf schema
+	@rm -rf js
+	@rm -f build
