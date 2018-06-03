@@ -75,7 +75,8 @@ ALTER TABLE bottle_categories
 
 INSERT INTO `accounts` (`id`, `name`, `email`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'ユーザー1', 'example1@gmail.com', '2017-05-10 20:04:31', '2017-05-10 20:04:31', NULL),
-(2, 'ユーザー2', 'example2@gmail.com', '2017-05-10 20:04:31', '2017-05-10 20:04:31', NULL);
+(2, 'ユーザー2', 'example2@gmail.com', '2017-05-10 20:04:31', '2017-05-10 20:04:31', NULL),
+(3, 'ユーザー3', 'example3@gmail.com', '2017-05-10 20:04:31', '2017-05-10 20:04:31', NULL);
 
 --
 -- テーブルのデータのダンプ `bottles`

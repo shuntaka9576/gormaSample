@@ -22,7 +22,7 @@ migrate/down:
 # goa
 all:clean gorma bootstrap
 run:
-	go run *.go
+	go run main.go --dbrun
 REPO:=github.com/shuntaka9576/gormaSample
 bootstrap:
 	@goagen bootstrap -d $(REPO)/design
