@@ -47,8 +47,8 @@ func main() {
 	//c := NewAccountController(service)
 	//app.MountAccountController(service, c)
 	//// Mount "bottle" controller
-	c2 := NewBottleController(service)
-	app.MountBottleController(service, c2)
+	//c2 := NewBottleController(service)
+	//app.MountBottleController(service, c2)
 
 	// Start service
 	if err := service.ListenAndServe(":8080"); err != nil {

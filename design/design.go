@@ -25,8 +25,6 @@ var _ = StorageGroup("celler", func() {
 			Field("created_at", gorma.Timestamp)
 			Field("updated_at", gorma.Timestamp)
 			Field("deleted_at", gorma.NullableTimestamp)
-			// HasMany(複数形名, 単数形名)
-			HasMany("Bottles", "Bottle")
 		})
 	})
 })
