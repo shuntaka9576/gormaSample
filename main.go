@@ -40,8 +40,10 @@ func main() {
 			log.Fatalf("database initialization failed: %s", err)
 		}
 		// Mount "accounts" controller
-		a := controller.NewAccountsController(service, dbcon)
-		app.MountAccountController(service, a)
+		c := controller.NewAccountsController(service, dbcon)
+		app.MountAccountController(service, c)
+		c2 := controller.NewSwaggeruiController(service)
+		app.MountSwaggeruiController(service, c2)
 	}
 	// *****************
 

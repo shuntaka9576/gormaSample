@@ -40,7 +40,9 @@ clean:
 	rm -rf app
 	rm -rf client
 	rm -rf tool
+	rm -rf js
 	rm -rf swagger
+	rm -rf schema
 curl:
 	curl http://localhost:8080/accounts/1
 	curl http://localhost:8080/bottles/1

@@ -90,3 +90,11 @@ var Account = MediaType("application/vnd.account+json", func() {
 		Attribute("email")
 	})
 })
+
+var _ = Resource("swaggerui", func() {
+	Origin("*", func() {
+		Methods("GET")
+	})
+	Files("/swagger.json", "swagger/swagger.json")
+	Files("/swaggerui/*filepath", "swaggerui/")
+})
