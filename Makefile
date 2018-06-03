@@ -23,6 +23,8 @@ migrate/down:
 REPO:=github.com/shuntaka9576/gormaSample
 bootstrap:
 	@goagen bootstrap -d $(REPO)/design
+gorma:
+	goagen --design=$(REPO)/design gen --pkg-path=github.com/goadesign/gorma
 generate:
 	@goagen app     -d $(REPO)/design
 	@goagen swagger -d $(REPO)/design
@@ -30,12 +32,10 @@ generate:
 	@goagen js -d $(REPO)/design
 	@goagen schema -d $(REPO)/design
 	@go build -o build
-
 clean:
+	@rm -rf models
 	@rm -rf app
 	@rm -rf client
 	@rm -rf tool
 	@rm -rf swagger
-	@rm -rf schema
-	@rm -rf js
 	@rm -f build
