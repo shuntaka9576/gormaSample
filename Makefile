@@ -21,6 +21,8 @@ migrate/down:
 
 # goa
 REPO:=github.com/shuntaka9576/gormaSample
+bootstrap:
+	@goagen bootstrap -d $(REPO)/design
 generate:
 	@goagen app     -d $(REPO)/design
 	@goagen swagger -d $(REPO)/design
