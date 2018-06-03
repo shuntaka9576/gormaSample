@@ -1,0 +1,13 @@
+version: '2'
+services:
+  gormaMysqlService:
+    image: hozi894/mysql:latest
+    volumes: 
+       - ./anitwidbvolume:/var/lib/mysql
+    ports:
+       - 3306:3306
+    environment:
+       - TZ=JST-9
+       - MYSQL_ROOT_PASSWORD=Passw0rd
+       - ANITWI_ENV=QA
+    restart: always
